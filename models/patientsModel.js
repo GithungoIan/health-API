@@ -14,6 +14,7 @@ const patientSchema = new mongoose.Schema({
     required: [true, "please provide the group of the patient"],
   },
   sex: {
+    type: String,
     default: "male",
     enum: ["male", "female"],
     required: [true, "please provide the gender of the patient"],
