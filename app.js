@@ -2,6 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
 
 const patientRouter = require("./routes/patientRoutes");
 const facilityRouter = require("./routes/facilityRoutes");
@@ -22,6 +24,12 @@ if (process.env.NODE_ENV === "development") {
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(cookieParser());
+
+//Data Sanitization againist NOSQL query Injection
+app.use(mongoSanitize());
+
+// Data Sanitization againist Xss
+app.use(xss());
 
 //Routes
 app.use("/api/v1/patients", patientRouter);
