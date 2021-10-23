@@ -10,7 +10,7 @@ process.on("uncaughtException", (err) => {
 dotenv.config({ path: "./.env" });
 const app = require("./app");
 
-const DB = process.env.DB_LOCAL;
+const DB = process.env.ONLINE_DATABASE;
 const port = process.env.PORT;
 
 mongoose
