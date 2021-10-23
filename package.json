@@ -20,6 +20,9 @@
     "morgan": "^1.10.0",
     "xss-clean": "^0.1.1"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "devDependencies": {
     "nodemon": "^2.0.12"
   }
